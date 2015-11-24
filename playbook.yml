@@ -1,5 +1,22 @@
 ---
 - hosts: all
   tasks:
-      - name: echo
-        command: echo true
+      - name: create storage filesystem
+        filesystem: fstype=ext4 dev=/dev/xvdb
+      - name: mount storage filesystem
+        mount: name=/srv/streams src=/dev/xvdb state=mounted opts=defaults,noatime
+      - name: chown storage mount
+        file: path=/srv/streams owner=wowza group=wowza recursive=yes
+      - name: wowza app configuration
+        copy:
+            src: conf/Application.xml
+            dest: "{{ wowza_home }}/conf/live/Application.xml"
+            owner: wowza
+            group: wowza
+            mode: 0644
+            validate: "xmllint %s"
+        notify:
+            - restart wowza
+  handlers:
+      - name: restart wowza
+        service: name=WowzaStreamingEngine state=restarted
