@@ -28,7 +28,7 @@
 
 		-->
 		<Streams>
-			<StreamType>default</StreamType>
+			<StreamType>live-record</StreamType>
 			<StorageDir>/srv/streams</StorageDir>
 			<KeyDir>${com.wowza.wms.context.VHostConfigHome}/keys</KeyDir>
 			<!-- LiveStreamPacketizers (separate with commas): cupertinostreamingpacketizer, smoothstreamingpacketizer, sanjosestreamingpacketizer, mpegdashstreamingpacketizer, cupertinostreamingrepeater, smoothstreamingrepeater, sanjosestreamingrepeater, mpegdashstreamingrepeater, dvrstreamingpacketizer, dvrstreamingrepeater -->
