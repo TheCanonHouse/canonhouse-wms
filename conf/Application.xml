@@ -39,7 +39,7 @@
 		</Streams>
 		<Transcoder>
 			<!-- To turn on transcoder set to: transcoder -->
-			<LiveStreamTranscoder></LiveStreamTranscoder>
+			<LiveStreamTranscoder>transcoder</LiveStreamTranscoder>
 			<!-- [templatename].xml or ${SourceStreamName}.xml -->
 			<Templates>${SourceStreamName}.xml,transrate.xml</Templates>
 			<ProfileDir>${com.wowza.wms.context.VHostConfigHome}/transcoder/profiles</ProfileDir>
@@ -56,17 +56,17 @@
 			<!-- If this is a dvrstreamingrepeater, define Application/Repeater/OriginURL to point back to the origin -->
 
 			<!-- To turn on DVR recording set Recorders to dvrrecorder.  This works with dvrstreamingpacketizer  -->
-			<Recorders></Recorders>
+			<Recorders>dvrrecorder</Recorders>
 
 			<!-- As a single server or as an origin, set the Store to dvrfilestorage-->
 			<!-- edges should have this empty -->
-			<Store></Store>
+			<Store>dvrfilestorage</Store>
 
 			<!--  Window Duration is length of live DVR window in seconds.  0 means the window is never trimmed. -->
-			<WindowDuration>0</WindowDuration>
+			<WindowDuration>120</WindowDuration>
 
 			<!-- Storage Directory is top level location where dvr is stored.  e.g. c:/temp/dvr -->
-			<StorageDir>${com.wowza.wms.context.VHostConfigHome}/dvr</StorageDir>
+			<StorageDir>/srv/streams/dvr</StorageDir>
 
 			<!-- valid ArchiveStrategy values are append, version, delete -->
 			<ArchiveStrategy>append</ArchiveStrategy>
@@ -86,7 +86,7 @@
 		</TimedText>
 
 		<!-- HTTPStreamers (separate with commas): cupertinostreaming, smoothstreaming, sanjosestreaming, mpegdashstreaming, dvrchunkstreaming -->
-		<HTTPStreamers>cupertinostreaming,smoothstreaming,sanjosestreaming,mpegdashstreaming</HTTPStreamers>
+		<HTTPStreamers>cupertinostreaming,smoothstreaming,sanjosestreaming,mpegdashstreaming,dvrchunkstreaming</HTTPStreamers>
 		<MediaCache>
 			<MediaCacheSourceList></MediaCacheSourceList>
 		</MediaCache>

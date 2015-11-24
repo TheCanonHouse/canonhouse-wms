@@ -20,6 +20,21 @@
             validate: "xmllint %s"
         notify:
             - restart wowza
+      - name: transcoder configuration
+        copy:
+            src: "{{ item }}"
+            dest: "{{ wowza_home }}/transcoder/templates/"
+            owner: wowza
+            group: wowza
+            mode: 0644
+            validate: "xmllint %s"
+        with_items:
+            - conf/transcoder/audioonly.xml
+            - conf/transcoder/transcode-h265-divx.xml
+            - conf/transcoder/transcode.xml
+            - conf/transcoder/transrate.xml
+        notify:
+            - restart wowza
   handlers:
       - name: restart wowza
         service: name=WowzaStreamingEngine state=restarted
