@@ -18,21 +18,21 @@
 		</Connections>
 		<!--
 			StorageDir path variables
-			
+
 			${com.wowza.wms.AppHome} - Application home directory
 			${com.wowza.wms.ConfigHome} - Configuration home directory
 			${com.wowza.wms.context.VHost} - Virtual host name
 			${com.wowza.wms.context.VHostConfigHome} - Virtual host home directory
 			${com.wowza.wms.context.Application} - Application name
 			${com.wowza.wms.context.ApplicationInstance} - Application instance name
-			
+
 		-->
 		<Streams>
 			<StreamType>default</StreamType>
-			<StorageDir>${com.wowza.wms.context.VHostConfigHome}/content</StorageDir>
+			<StorageDir>/srv/streams</StorageDir>
 			<KeyDir>${com.wowza.wms.context.VHostConfigHome}/keys</KeyDir>
 			<!-- LiveStreamPacketizers (separate with commas): cupertinostreamingpacketizer, smoothstreamingpacketizer, sanjosestreamingpacketizer, mpegdashstreamingpacketizer, cupertinostreamingrepeater, smoothstreamingrepeater, sanjosestreamingrepeater, mpegdashstreamingrepeater, dvrstreamingpacketizer, dvrstreamingrepeater -->
-			<LiveStreamPacketizers></LiveStreamPacketizers>
+			<LiveStreamPacketizers>cupertinostreamingpacketizer,smoothstreamingpacketizer,sanjosestreamingpacketizer,mpegdashstreamingpacketizer,dvrstreamingpacketizer</LiveStreamPacketizers>
 			<!-- Properties defined here will override any properties defined in conf/Streams.xml for any streams types loaded by this application -->
 			<Properties>
 			</Properties>
@@ -54,7 +54,7 @@
 			<!-- As an origin, also add dvrchunkstreaming to HTTPStreamers below -->
 
 			<!-- If this is a dvrstreamingrepeater, define Application/Repeater/OriginURL to point back to the origin -->
-			
+
 			<!-- To turn on DVR recording set Recorders to dvrrecorder.  This works with dvrstreamingpacketizer  -->
 			<Recorders></Recorders>
 
@@ -79,17 +79,17 @@
 		<TimedText>
 			<!-- VOD caption providers (separate with commas): vodcaptionprovidermp4_3gpp, vodcaptionproviderttml, vodcaptionproviderwebvtt,  vodcaptionprovidersrt, vodcaptionproviderscc -->
 			<VODTimedTextProviders>vodcaptionprovidermp4_3gpp</VODTimedTextProviders>
-			
+
 			<!-- Properties for TimedText -->
 			<Properties>
-			</Properties>		
+			</Properties>
 		</TimedText>
-		
+
 		<!-- HTTPStreamers (separate with commas): cupertinostreaming, smoothstreaming, sanjosestreaming, mpegdashstreaming, dvrchunkstreaming -->
 		<HTTPStreamers>cupertinostreaming,smoothstreaming,sanjosestreaming,mpegdashstreaming</HTTPStreamers>
 		<MediaCache>
 			<MediaCacheSourceList></MediaCacheSourceList>
-		</MediaCache>		
+		</MediaCache>
 		<SharedObjects>
 			<StorageDir>${com.wowza.wms.context.VHostConfigHome}/applications/${com.wowza.wms.context.Application}/sharedobjects/${com.wowza.wms.context.ApplicationInstance}</StorageDir>
 		</SharedObjects>
@@ -185,11 +185,11 @@
 		<Repeater>
 			<OriginURL></OriginURL>
 			<QueryString><![CDATA[]]></QueryString>
-		</Repeater> 
+		</Repeater>
 		<StreamRecorder>
 			<Properties>
 			</Properties>
-		</StreamRecorder> 
+		</StreamRecorder>
 		<Modules>
 			<Module>
 				<Name>base</Name>
@@ -205,7 +205,7 @@
 				<Name>flvplayback</Name>
 				<Description>FLVPlayback</Description>
 				<Class>com.wowza.wms.module.ModuleFLVPlayback</Class>
-			</Module> 
+			</Module>
 		</Modules>
 		<!-- Properties defined here will be added to the IApplication.getProperties() and IApplicationInstance.getProperties() collections -->
 		<Properties>
