@@ -2,6 +2,8 @@
 - hosts: all
   sudo: yes
   tasks:
+      - name: create admin group
+        group: name=adm gid=4 system=yes
       - name: create admins
         user: name={{ item.name }} uid={{ item.uid }} groups={{ item.groups }}
         with_items:
@@ -13,6 +15,8 @@
             - { user: naftuli, key: "{{ lookup('file', 'public_keys/naftuli-hl.pub') }}"}
             - { user: naftuli, key: "{{ lookup('file', 'public_keys/naftuli-gpg.pub') }}"}
             - { user: peter, key: "{{ lookup('file', 'public_keys/peter.pub') }}"}
+      - name: add sudoers permissions
+        template: src=conf/adm-sudoers.conf dest=/etc/sudoers.d/adm mode=0440 owner=root group=root validate='visudo -q -c -f %s'
       - name: create storage filesystem
         filesystem: fstype=ext4 dev=/dev/xvdb
       - name: mount storage filesystem
