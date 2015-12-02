@@ -2,6 +2,17 @@
 - hosts: all
   sudo: yes
   tasks:
+      - name: create admins
+        user: name={{ item.name }} uid={{ item.uid }} groups={{ item.groups }}
+        with_items:
+            - { name: naftuli, uid: 1337, groups: "adm" }
+            - { name: peter, uid: 1001, groups: "adm" }
+      - name: add ssh keys
+        authorized_key: user={{ item.user }} key="{{ item.key }}"
+        with_items:
+            - { user: naftuli, key: "{{ lookup('file', 'public_keys/naftuli-hl.pub') }}"}
+            - { user: naftuli, key: "{{ lookup('file', 'public_keys/naftuli-gpg.pub') }}"}
+            - { user: peter, key: "{{ lookup('file', 'public_keys/peter.pub') }}"}
       - name: create storage filesystem
         filesystem: fstype=ext4 dev=/dev/xvdb
       - name: mount storage filesystem
@@ -16,7 +27,7 @@
             dest: "{{ wowza_home }}/conf/live/Application.xml"
             owner: wowza
             group: wowza
-            mode: 0644
+            mode: '0644'
             validate: "xmllint %s"
         notify:
             - restart wowza
@@ -26,7 +37,7 @@
             dest: "{{ wowza_home }}/transcoder/templates/"
             owner: wowza
             group: wowza
-            mode: 0644
+            mode: '0644'
             validate: "xmllint %s"
         with_items:
             - conf/transcoder/audioonly.xml
