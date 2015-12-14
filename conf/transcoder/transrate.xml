@@ -347,10 +347,10 @@
                 <Name>all</Name>
                 <StreamName>${SourceStreamName}_all</StreamName>
                 <Members>
-                    <Member>
+                    <!-- <Member>
                         <MemberName>source</MemberName>
                         <EncodeName>source</EncodeName>
-                    </Member>
+                    </Member> -->
                     <Member>
                         <MemberName>720p</MemberName>
                         <EncodeName>720p</EncodeName>
