@@ -50,7 +50,7 @@
                     <Bitrate>1300000</Bitrate>
                     <KeyFrameInterval>
                         <FollowSource>false</FollowSource>
-                        <Interval>30</Interval>
+                        <Interval>15</Interval>
                     </KeyFrameInterval>
                     <Overlays>
                         <Overlay>
@@ -107,7 +107,7 @@
                     <Bitrate>850000</Bitrate>
                     <KeyFrameInterval>
                         <FollowSource>false</FollowSource>
-                        <Interval>30</Interval>
+                        <Interval>15</Interval>
                     </KeyFrameInterval>
                     <Overlays>
                         <Overlay>
@@ -164,7 +164,7 @@
                     <Bitrate>350000</Bitrate>
                     <KeyFrameInterval>
                         <FollowSource>false</FollowSource>
-                        <Interval>30</Interval>
+                        <Interval>15</Interval>
                     </KeyFrameInterval>
                     <Overlays>
                         <Overlay>
@@ -221,7 +221,7 @@
                     <Bitrate>200000</Bitrate>
                     <KeyFrameInterval>
                         <FollowSource>false</FollowSource>
-                        <Interval>30</Interval>
+                        <Interval>15</Interval>
                     </KeyFrameInterval>
                     <Overlays>
                         <Overlay>
@@ -278,7 +278,7 @@
                     <Bitrate>150000</Bitrate>
                     <KeyFrameInterval>
                         <FollowSource>false</FollowSource>
-                        <Interval>30</Interval>
+                        <Interval>15</Interval>
                     </KeyFrameInterval>
                     <Overlays>
                         <Overlay>
