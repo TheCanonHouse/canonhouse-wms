@@ -49,8 +49,8 @@
                     <Profile>main</Profile>
                     <Bitrate>1300000</Bitrate>
                     <KeyFrameInterval>
-                        <FollowSource>true</FollowSource>
-                        <Interval>60</Interval>
+                        <FollowSource>false</FollowSource>
+                        <Interval>30</Interval>
                     </KeyFrameInterval>
                     <Overlays>
                         <Overlay>
@@ -106,8 +106,8 @@
                     <Profile>main</Profile>
                     <Bitrate>850000</Bitrate>
                     <KeyFrameInterval>
-                        <FollowSource>true</FollowSource>
-                        <Interval>60</Interval>
+                        <FollowSource>false</FollowSource>
+                        <Interval>30</Interval>
                     </KeyFrameInterval>
                     <Overlays>
                         <Overlay>
@@ -163,8 +163,8 @@
                     <Profile>baseline</Profile>
                     <Bitrate>350000</Bitrate>
                     <KeyFrameInterval>
-                        <FollowSource>true</FollowSource>
-                        <Interval>60</Interval>
+                        <FollowSource>false</FollowSource>
+                        <Interval>30</Interval>
                     </KeyFrameInterval>
                     <Overlays>
                         <Overlay>
@@ -220,8 +220,8 @@
                     <Profile>baseline</Profile>
                     <Bitrate>200000</Bitrate>
                     <KeyFrameInterval>
-                        <FollowSource>true</FollowSource>
-                        <Interval>60</Interval>
+                        <FollowSource>false</FollowSource>
+                        <Interval>30</Interval>
                     </KeyFrameInterval>
                     <Overlays>
                         <Overlay>
@@ -278,7 +278,7 @@
                     <Bitrate>150000</Bitrate>
                     <KeyFrameInterval>
                         <FollowSource>false</FollowSource>
-                        <Interval>60</Interval>
+                        <Interval>30</Interval>
                     </KeyFrameInterval>
                     <Overlays>
                         <Overlay>

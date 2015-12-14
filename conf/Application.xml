@@ -172,7 +172,7 @@
             <Properties>
                 <Property>
                     <Name>cupertinoChunkDurationTarget</Name>
-                    <Value>2000</Value>
+                    <Value>1000</Value>
                     <Type>Integer</Type>
                 </Property>
                 <Property>
