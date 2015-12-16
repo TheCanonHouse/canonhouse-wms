@@ -32,7 +32,7 @@
             <StorageDir>/srv/streams/</StorageDir>
             <KeyDir>${com.wowza.wms.context.VHostConfigHome}/keys</KeyDir>
             <!-- LiveStreamPacketizers (separate with commas): cupertinostreamingpacketizer, smoothstreamingpacketizer, sanjosestreamingpacketizer, mpegdashstreamingpacketizer, cupertinostreamingrepeater, smoothstreamingrepeater, sanjosestreamingrepeater, mpegdashstreamingrepeater, dvrstreamingpacketizer, dvrstreamingrepeater -->
-            <LiveStreamPacketizers>cupertinostreamingpacketizer,smoothstreamingpacketizer,sanjosestreamingpacketizer,mpegdashstreamingpacketizer,dvrstreamingpacketizer</LiveStreamPacketizers>
+            <LiveStreamPacketizers>cupertinostreamingpacketizer,mpegdashstreamingpacketizer</LiveStreamPacketizers>
             <!-- Properties defined here will override any properties defined in conf/Streams.xml for any streams types loaded by this application -->
             <Properties>
             </Properties>
@@ -56,7 +56,7 @@
             <!-- If this is a dvrstreamingrepeater, define Application/Repeater/OriginURL to point back to the origin -->
 
             <!-- To turn on DVR recording set Recorders to dvrrecorder.  This works with dvrstreamingpacketizer  -->
-            <Recorders>dvrrecorder</Recorders>
+            <Recorders></Recorders>
 
             <!-- As a single server or as an origin, set the Store to dvrfilestorage-->
             <!-- edges should have this empty -->
@@ -86,7 +86,7 @@
         </TimedText>
 
         <!-- HTTPStreamers (separate with commas): cupertinostreaming, smoothstreaming, sanjosestreaming, mpegdashstreaming, dvrchunkstreaming -->
-        <HTTPStreamers>cupertinostreaming,smoothstreaming,sanjosestreaming,mpegdashstreaming,dvrchunkstreaming</HTTPStreamers>
+        <HTTPStreamers>cupertinostreaming,mpegdashstreaming</HTTPStreamers>
         <MediaCache>
             <MediaCacheSourceList></MediaCacheSourceList>
         </MediaCache>
@@ -172,7 +172,7 @@
             <Properties>
                 <Property>
                     <Name>cupertinoChunkDurationTarget</Name>
-                    <Value>500</Value>
+                    <Value>1000</Value>
                     <Type>Integer</Type>
                 </Property>
                 <Property>

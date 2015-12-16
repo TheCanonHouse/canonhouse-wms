@@ -1,2 +1,5 @@
 ---
 wowza_home: /usr/local/WowzaStreamingEngine
+wowza_apps:
+    - live
+    - live2

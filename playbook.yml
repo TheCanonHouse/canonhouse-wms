@@ -24,15 +24,17 @@
       - name: chown storage mount
         file: path=/srv/streams owner=wowza group=wowza recurse=yes
       - name: wowza app configuration directory
-        file: path={{ wowza_home }}/conf/live owner=wowza group=wowza mode=0755 state=directory
+        file: path={{ wowza_home }}/conf/{{ item }} owner=wowza group=wowza mode=0755 state=directory
+        with_items: "{{ wowza_apps }}"
       - name: wowza app configuration
         copy:
-            src: conf/Application.xml
-            dest: "{{ wowza_home }}/conf/live/Application.xml"
+            src: conf/applications/{{ item }}/Application.xml
+            dest: "{{ wowza_home }}/conf/{{ item }}/Application.xml"
             owner: wowza
             group: wowza
             mode: '0644'
             validate: "xmllint %s"
+        with_items: "{{ wowza_apps }}"
         notify:
             - restart wowza
       - name: transcoder configuration
@@ -43,11 +45,8 @@
             group: wowza
             mode: '0644'
             validate: "xmllint %s"
-        with_items:
-            - conf/transcoder/audioonly.xml
-            - conf/transcoder/transcode-h265-divx.xml
-            - conf/transcoder/transcode.xml
-            - conf/transcoder/transrate.xml
+        with_fileglob:
+            - conf/transcoder/*.xml
         notify:
             - restart wowza
   handlers:
